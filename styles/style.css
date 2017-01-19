@@ -1,0 +1,51 @@
+html, body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+.message-list {
+  border: 2px solid #f35369;
+  padding: 5px;
+}
+
+.message {
+  display: flex;
+  margin: 5px 0;
+}
+
+.text-wrapper {
+  border-radius: 12px;
+  flex-direction: column;
+  background-color: #f35369;
+}
+
+.text {
+  padding: 5px;
+  color: #fff
+}
+
+.message-input {
+  min-height: 2.625rem;
+  height: 38px;
+  max-height: 11.25rem;
+  border: 3px solid #e0e0e0;
+}
+
+.send-button {
+  position: absolute;
+  background-color: #fafafa;
+  border: none;
+  cursor: pointer;
+  min-height: 2.625rem;
+  height: 35px;
+  max-height: 11.0rem;
+}
+
+textarea[name="message"] {
+  border:none;
+  resize: none;
+  outline-offset: 1px;
+  outline-color: #f35369;
+  padding-left: 46px;
+  height: calc(100% - 6px);
+  width: calc(100% - 50px);
+}
