@@ -4,6 +4,12 @@ const formatTimeSince = messageTimeStamp => {
   const elapsedTime = Date.now() - messageTimeStamp;
   const minutes = Math.floor(elapsedTime / 60000);
 
+  if (minutes > 1440)
+    return Math.floor(minutes / 1440) + 'd';
+
+  if (minutes > 60)
+    return Math.floor(minutes / 60) + 'h';
+
   if (minutes > 0)
     return minutes + 'm';
 
@@ -21,7 +27,7 @@ const MessageList = props => (
           <div className="text-wrapper">
             <div className="text">
               {m.text}
-              <span className="timestamp">@{formatTimeSince(m.timestamp)}</span>
+              <span className="timestamp">{' '}@{formatTimeSince(m.timestamp)}</span>
             </div>
           </div>
         </div>

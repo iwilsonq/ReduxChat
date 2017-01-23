@@ -1,28 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import MessageList from './MessageList';
-import MessageInput from './MessageInput';
+import ThreadDisplay from './ThreadDisplay';
 import { addMessage } from '../actions';
 
 class Chat extends Component {
   handleMessageSubmit(text) {
-    this.props.addMessage(text);
+    const { activeThreadId } = this.props;
+    this.props.addMessage(text, activeThreadId);
   }
 
   render() {
+    const { threads, activeThreadId } = this.props;
     return (
       <div className="chat">
-        <MessageList messages={this.props.messages} />
-        <MessageInput onSubmit={this.handleMessageSubmit.bind(this)} />
+        <ThreadDisplay
+          threads={threads}
+          activeThreadId={activeThreadId}
+          handleMessageSubmit={this.handleMessageSubmit.bind(this)}
+        />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  const { messages }  = state;
+  const { threads, activeThreadId }  = state;
   return {
-    messages
+    threads,
+    activeThreadId
   };
 };
 

@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import messageReducer from './messageReducer';
+import threadReducer from './threadReducer';
+import activeThreadIdReducer from './activeThreadReducer';
 
 export default combineReducers({
-  messages: messageReducer
+  threads: threadReducer,
+  activeThreadId: activeThreadIdReducer
 });
