@@ -49,3 +49,30 @@ textarea[name="message"] {
   height: calc(100% - 6px);
   width: calc(100% - 50px);
 }
+
+.chat {
+  display: flex;
+  flex-direction: column;
+}
+
+.thread-control {
+  font-size: 1.2rem;
+}
+
+.thread {
+  color: #f35369;
+  background-color: #fff;
+  margin-left: 5px;
+  margin-right: 10px;
+  padding: 2px 5px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border: 2px solid #f35369;
+  border-bottom: none;
+  float: left;
+}
+
+.active {
+  color: #fff;
+  background-color: #f35369;
+}

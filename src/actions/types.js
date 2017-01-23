@@ -1,1 +1,2 @@
 export const ADD_MESSAGE = 'ADD_MESSAGE';
+export const CHANGE_ACTIVE_THREAD = 'CHANGE_ACTIVE_THREAD';

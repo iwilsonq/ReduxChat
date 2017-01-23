@@ -4,7 +4,6 @@ import MessageInput from './MessageInput';
 
 const ThreadDisplay = props => {
   const { threads, activeThreadId } = props;
-  console.log(props);
   const activeThread = threads.find(thread => thread.id === activeThreadId);
 
   return (
