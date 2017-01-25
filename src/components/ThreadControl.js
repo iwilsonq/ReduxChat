@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ThreadControl = props => {
+  console.log(props.threads);
   return (
     <div className="thread-control">
       {props.threads.map(thread => (

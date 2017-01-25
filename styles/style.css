@@ -1,8 +1,57 @@
 html, body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
+  padding: 0px;
+  margin: 0px;
 }
+
+.app {
+  display: flex;
+  max-height: 100vh;
+  overflow-y: hidden;
+}
+
+.app > .user-menu {
+  height: 100vh;
+  flex: 1;
+  min-width: 220px;
+}
+.app > .chat {
+  margin-top: 45px;
+  height: 100vh;
+  flex: 5;
+}
+
+.user-menu {
+  border: 2px solid steelblue;
+  background-color: cyan;
+}
+
+.user-list {
+  padding: 0px;
+  margin-bottom: 20px;
+  height: 100%;
+}
+
+.user-list li {
+  list-style: none;
+  background-color: snow;
+  padding: 3px 0 3px 20px;
+}
+
+.user-list li:hover {
+  background-color: lightsteelblue;
+}
+
+.user-menu p {
+  font-style: italic;
+  background-color: #0097A7;
+  padding: 5px 5px;
+  margin-bottom: 0px;
+}
+
 .message-list {
+  min-height: 531px;
   border: 2px solid #f35369;
   padding: 5px;
 }

@@ -21,7 +21,6 @@ class Chat extends Component {
 
   render() {
     const { threads, activeThreadId } = this.props;
-
     return (
       <div className="chat">
         <ThreadControl
