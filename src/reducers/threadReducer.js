@@ -1,6 +1,6 @@
 import uuidV4 from 'uuid/v4';
 import messageReducer from './messageReducer';
-import { ADD_MESSAGE, NEW_THREAD } from '../actions/types';
+import { ADD_MESSAGE, NEW_THREAD, CLOSE_THREAD } from '../actions/types';
 
 const findThreadById = (threads, threadId) => {
   return threads.findIndex(thread => thread.id === threadId);
@@ -53,7 +53,6 @@ const threadReducer = (state = INITIAL_STATE, action) => {
       ];
     }
     case NEW_THREAD: {
-      console.log(action);
       const newThread = {
         id: action.threadId,
         name: action.name,
@@ -63,6 +62,13 @@ const threadReducer = (state = INITIAL_STATE, action) => {
       return [
         ...state,
         newThread
+      ];
+    }
+    case CLOSE_THREAD: {
+      const threadIndex = findThreadById(state, action.threadId);
+      return [
+        ...state.slice(0, threadIndex),
+        ...state.slice(threadIndex + 1)
       ];
     }
     default:

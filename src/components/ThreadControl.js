@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ThreadControl = props => {
-  console.log(props.threads);
   return (
     <div className="thread-control">
       {props.threads.map(thread => (
@@ -9,9 +8,9 @@ const ThreadControl = props => {
           key={thread.id}
           id={thread.id}
           className="thread"
-          onClick={props.onThreadClick}
         >
-          {thread.name}
+          <a id={thread.id} onClick={props.onThreadClick}>{thread.name + ' '}</a>
+          <a id={thread.id} onClick={props.onThreadClose}>&times;</a>
         </div>
       ))}
     </div>

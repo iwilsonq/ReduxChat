@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ThreadControl from './ThreadControl';
 import ThreadDisplay from './ThreadDisplay';
-import { addMessage, changeActiveThread } from '../actions';
+import EmptyDisplay from './EmptyDisplay';
+import { addMessage, changeActiveThread, closeThread } from '../actions';
 
 class Chat extends Component {
   componentDidMount() {
@@ -12,6 +13,11 @@ class Chat extends Component {
   handleThreadClick(e) {
     const threadId = e.target.id;
     this.props.changeActiveThread(threadId);
+  }
+
+  handleThreadClose(e) {
+    const threadId = e.target.id;
+    this.props.closeThread(threadId);
   }
 
   handleMessageSubmit(text) {
@@ -27,12 +33,17 @@ class Chat extends Component {
           threads={threads}
           activeThreadId={activeThreadId}
           onThreadClick={this.handleThreadClick.bind(this)}
+          onThreadClose={this.handleThreadClose.bind(this)}
         />
+      {
+        threads.length ?
         <ThreadDisplay
           threads={threads}
           activeThreadId={activeThreadId}
           handleMessageSubmit={this.handleMessageSubmit.bind(this)}
-        />
+        /> :
+        <EmptyDisplay />
+      }
       </div>
     );
   }
@@ -48,5 +59,6 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
   addMessage,
-  changeActiveThread
+  changeActiveThread,
+  closeThread
 })(Chat);
